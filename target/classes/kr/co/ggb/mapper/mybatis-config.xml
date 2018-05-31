@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration 
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type = "kr.co.ggb.dto.ReviewDTO" alias="Review"/>
+		<typeAlias type = "kr.co.ggb.dto.ReviewFileDTO" alias="ReviewFile"/>
+		<typeAlias type="kr.co.ggb.dto.UsersDTO" alias="Users" />
+		<typeAlias type="kr.co.ggb.dto.CategoryDTO" alias="Category" />
+		<typeAlias type="kr.co.ggb.dto.QnaDTO" alias="Qna" />
+	</typeAliases>
+
+	<mappers>
+		<!-- <mapper resource="kr/co/ggb/mapper/BoardMapper.xml" /> -->
+		<mapper resource="kr/co/ggb/mapper/ReviewMapper.xml" />
+		<mapper resource="kr/co/ggb/mapper/ReviewFileMapper.xml"/>
+		<mapper resource="kr/co/ggb/mapper/UsersMapper.xml" />
+		<mapper resource="kr/co/ggb/mapper/CategoryMapper.xml" />
+		<mapper resource="kr/co/ggb/mapper/QnaMapper.xml" />
+	</mappers>
+
+</configuration>

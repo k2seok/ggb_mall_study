@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ggb.mapper.ReviewFile">
+	<resultMap type="ReviewFile" id="ReviewFileResultMap">
+		<result column="PRODUCTFILE_ID" property="reviewFileId" />
+		<result column="PRODUCT_ID" property="reviewNum" />
+		<result column="FILE_NAME" property="fileName" />
+		<result column="SAVE_FILE_NAME" property="savefileName" />
+		<result column="FILE_REGDATE" property="fileRegdate" />
+	</resultMap>
+	
+	<insert id="addReviewFile" parameterType="ReviewFile">
+		insert into REVIEWFILES values(REVIEWFILE_NUM.NEXTVAL,#{reviewNum},#{fileName}, #{savefileName}, sysdate)
+	</insert>
+	<select id = "selectReviewFile" parameterType="java.lang.Integer" resultMap="ReviewFileResultMap">
+    		SELECT * FROM REVIEWFILES WHERE REVIEW_NUM = #{reviewNum}
+    </select>
+</mapper>

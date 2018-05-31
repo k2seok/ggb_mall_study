@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="kr.co.ggb.mapper.Qna">
+    	<resultMap type="Qna" id="QnaResultMap">
+    		<result column="QNABOARD_NUM" property="qnaboardId" />
+    		<result column="PRODUCT_ID" property="productId" />
+    		<result column="USERS_ID" property="usersId" />
+    		<result column="QNA_TITLE" property="qnatitle" />
+    		<result column="QNA_CONTENT" property="qnaContent" />
+    		<result column="QNA_REGDATE" property="qnaRegdate" />
+    	</resultMap>
+    
+    <insert id="addQna" parameterType="Qna">
+    Insert into QNA values(QNABOARD_NUM.NEXTVAL,#{productId},#{usersId},#{qnatitle},#{qnaContent},SYSDATE)
+    </insert>
+    
+    <select id="selectQna" parameterType="String" resultMap="QnaResultMap">
+    	select * from qna where product_id=#{productId}
+    </select>
+    </mapper>

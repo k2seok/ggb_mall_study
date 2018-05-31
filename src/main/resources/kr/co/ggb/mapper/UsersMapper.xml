@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Users">
+	<resultMap type="Users" id="UsersMap">
+		<result column="users_Id" property="usersId"/>
+		<result column="password" property="password"/>
+		<result column="users_Name" property="usersName"/>
+		<result column="phone" property="phone"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="Users" >
+		<![CDATA[ insert into USERS values( #{usersId}, #{password} ,#{usersName}, #{phone}) ]]>
+	</insert>
+
+	<select id="select" parameterType="java.lang.String" resultMap="UsersMap">
+		<![CDATA[ select * from USERS where USERS_ID = #{usersId}]]>
+	</select>
+</mapper>

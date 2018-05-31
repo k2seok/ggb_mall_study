@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC  
+
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+
+
+	<definition name="mainbase" template="/WEB-INF/views/mainLayout.jsp">
+
+		<put-attribute name="title" value="" />
+
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+
+		<put-attribute name="menu" value="/WEB-INF/views/category.jsp" />
+
+		<put-attribute name="body" value="" />
+
+		<put-attribute name="footer" value="/WEB-INF/views/companyInfo.jsp" />
+
+	</definition>
+
+	<definition name="productBoard" template="/WEB-INF/views/productLayout.jsp">
+
+		<put-attribute name="title" value="" />
+
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+
+		<put-attribute name="menu" value="/WEB-INF/views/category.jsp" />
+
+		<put-attribute name="product" value="/WEB-INF/views/product.jsp" />
+		<put-attribute name="reviewWrite" value="" />
+		<put-attribute name="reviewList" value="" />
+		<put-attribute name="qnaList" value="" />
+
+		<put-attribute name="footer" value="/WEB-INF/views/companyInfo.jsp" />
+
+	</definition>
+
+
+	<definition name="productListBase" template="/WEB-INF/views/productListLayout.jsp">
+
+		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="productList" value="" />
+		<put-attribute name="menu" value="/WEB-INF/views/category.jsp" />
+
+		<put-attribute name="footer" value="/WEB-INF/views/companyInfo.jsp" />
+
+	</definition>
+	<definition name="productList" extends="productListBase">
+		<put-attribute name="productList" value="/WEB-INF/views/productList.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/category.jsp" />
+		
+
+	</definition>
+
+	<!-- 컨트롤러에서 리턴해 주는 뷰이름,본예제는 main -->
+
+	<definition name="main" extends="mainbase">
+		<put-attribute name="title"
+			value="OracleJava Community, MVC HelloWorld by Tiles" />
+		<put-attribute name="body" value="/WEB-INF/views/product.jsp" />
+	</definition>
+
+	<definition name="product" extends="productBoard">
+		<put-attribute name="product" value="/WEB-INF/views/product.jsp" />
+		<put-attribute name="reviewWrite" value="/WEB-INF/views/reviewWriteForm.jsp" />
+		<put-attribute name="reviewList" value="/WEB-INF/views/reviewList.jsp" />
+		<put-attribute name="qnaList" value="/WEB-INF/views/qnalist.jsp" />
+	</definition>
+
+
+
+	<definition name="loginForm" extends="mainbase">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	<definition name="writeForm" extends="mainbase">
+		<put-attribute name="body" value="/WEB-INF/views/qnaWriteForm.jsp" />
+	</definition>
+</tiles-definitions>

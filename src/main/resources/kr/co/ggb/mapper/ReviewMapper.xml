@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.ggb.mapper.Review">
+	<resultMap type="Review" id="ReviewResultMap">
+		<result column="REVIEW_NUM" property="reviewNum" />
+		<result column="PRODUCT_ID" property="productId" />
+		<result column="USERS_ID" property="usersId" />
+		<result column="REVIEW_CONTENT" property="content" />
+		<result column="REVIEW_REGDATE" property="regDate" />
+	</resultMap>
+
+	<insert id="addReview" parameterType="Review">
+		INSERT INTO REVIEW VALUES(REVIEW_NUM.NEXTVAL, #{productId},
+		#{usersId}, #{content}, sysdate)
+		<selectKey keyProperty="reviewNum" resultType="Integer">
+			SELECT REVIEW_NUM.CURRVAL FROM DUAL
+		</selectKey>
+	</insert>
+
+	<select id="selectReview" parameterType="String" resultMap="ReviewResultMap">
+		SELECT * FROM REVIEW WHERE PRODUCT_ID = #{productId}
+	</select>
+</mapper>
